@@ -18,10 +18,13 @@ resources:
 
 pipelines:
   - name: pipeline_dbp
+    configuration:
+      nodePool: u18-static
     steps:
       - name: docker_build
         type: DockerBuild
         configuration:
+          affinityGroup: dbp_group
           dockerFileLocation: .
           dockerFileName: Dockerfile
           dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/mydockerbase  # replace with your image path and name
@@ -34,6 +37,7 @@ pipelines:
       - name: docker_push
         type: DockerPush
         configuration:
+          affinityGroup: dbp_group
           targetRepository: docker-local
           integrations:
             - name: jfrog_artifactory_int    # replace with your artifactory integration
