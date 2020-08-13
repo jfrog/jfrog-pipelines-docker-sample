@@ -3,21 +3,21 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: jfrog_github_int   # replace with your integration
-      path: jfrog/jfrog-pipelines-docker-build-push    # replace with your repository name
+      path: jfrog/jfrog-pipelines-docker-sample    # replace with your repository name
       branches:
         include: master
-      
+
   - name: dbp_baseimage
     type: Image
     configuration:
       registry: jfrog_artifactory_int      # replace with your artifactory integration
       sourceRepository: docker_local   # required if registry is Artifactory
       imageName: pipe-master.jfrog.info:8082/docker-local/mydockerbase  # replace with your image path and name
-      imageTag: latest       
+      imageTag: latest
       autoPull: true
 
 pipelines:
-  - name: pipeline_docker_build_push
+  - name: pipeline_dbp
     steps:
       - name: docker_build
         type: DockerBuild
@@ -39,5 +39,5 @@ pipelines:
             - name: jfrog_artifactory_int    # replace with your artifactory integration
           inputSteps:
             - name: docker_build
-          outputResources: 
+          outputResources:
             - name: dbp_baseimage
