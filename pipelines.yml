@@ -12,7 +12,7 @@ resources:
     configuration:
       registry: jfrog_artifactory_int      # replace with your artifactory integration
       sourceRepository: docker_local   # required if registry is Artifactory
-      imageName: pipe-master.jfrog.info:8082/docker-local/mydockerbase  # replace with your image path and name
+      imageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/mydockerbase  # replace with your image path and name
       imageTag: latest
       autoPull: true
 
@@ -24,7 +24,7 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: pipe-master.jfrog.info:8082/docker-local/mydockerbase  # replace with your image path and name
+          dockerImageName: pipelines.westus.cloudapp.azure.com:8082/docker-local/mydockerbase  # replace with your image path and name
           dockerImageTag: ${run_number}
           inputResources:
             - name: dbp_repo
