@@ -27,8 +27,8 @@ The pipelines configuration is available in the `pipelines.yml` file. This file 
 * `dbp_repo`, a GitRepo resource pointing to the repository containing the Dockerfile and other source code required to build the image
 * `dbp_image`, an Image resource that will point to the image in Artifactory
 * `pipeline_dbp`, the pipeline definition for building and pushing the Docker image.
-** `docker_build`, a DockerBuild step that builds the specified Docker image. This accepts `dbp_repo` as an inputResource in order to build the image based on provided Dockerfile
-** `docker_push`, a DockerPush step that pushes the specified Docker image to Artifactory. This step outputs the `dbp_image` resource, which can be used to trigger downstream dependent steps or pipelines if needed.
+  * `docker_build`, a DockerBuild step that builds the specified Docker image. This accepts `dbp_repo` as an inputResource in order to build the image based on provided Dockerfile
+  * `docker_push`, a DockerPush step that pushes the specified Docker image to Artifactory. This step outputs the `dbp_image` resource, which can be used to trigger downstream dependent steps or pipelines if needed.
 
 Update the pipelines configuration file to reflect your repository path, integration names, and image name. We have included comments in `pipelines.yml` to specify what needs to be updated.
 
