@@ -40,7 +40,7 @@ pipelines:
           affinityGroup: dbp_group
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: dockerlocal/hello-world:tzahis_image  # replace with your image path and name
+          dockerImageName: z0tzahie2e.jfrogdev.org/dockerlocal/hello-world:tzahis_image  # replace with your image path and name
           dockerImageTag: ${run_number}
           inputResources:
             - name: dbp_repo
