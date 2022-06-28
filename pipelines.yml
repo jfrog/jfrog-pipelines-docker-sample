@@ -12,7 +12,7 @@ resources:
     configuration:
       registry: RF                                # <-- replace with your artifactory integration
       sourceRepository: dockerlocal               # <-- required if registry is Artifactory
-      imageName: hello-world:tzahis_image  # < -- replace with your image path and name
+      imageName: dockerlocal/hello-world:tzahis_image  # < -- replace with your image path and name
       imageTag: latest
       autoPull: true
       
