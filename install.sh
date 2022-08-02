@@ -44,7 +44,7 @@ apt-get install -y -q git="$GIT_VERSION"
 
 JFROG_VERSION=1.33.2
 echo "================= Adding jfrog-cli $JFROG_VERSION  ================"
-wget -nv https://api.bintray.com/content/jfrog/jfrog-cli-go/"$JFROG_VERSION"/jfrog-cli-linux-amd64/jfrog?bt_package=jfrog-cli-linux-amd64 -O jfrog
+curl -fL https://getcli.jfrog.io | bash -s v2
 sudo chmod +x jfrog
 mv jfrog /usr/bin/jfrog
 
