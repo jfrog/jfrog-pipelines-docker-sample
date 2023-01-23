@@ -11,7 +11,7 @@ resources:
     type: Image
     configuration:
       registry: myArtifactory                                # <-- replace with your artifactory integration
-      sourceRepository: anon-docker-local               # <-- required if registry is Artifactory
+      sourceRepository: quickstart-docker-local               # <-- required if registry is Artifactory
       imageName: chartstesting.jfrog.io/docker-local/dbp  # < -- replace with your image path and name
       imageTag: latest
       autoPull: true
@@ -40,7 +40,7 @@ pipelines:
           affinityGroup: dbp_group
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: chartstesting.jfrog.io/docker-local/dbp  # replace with your image path and name
+          dockerImageName: chartstesting.jfrog.io/quickstart-docker-local/dbp  # replace with your image path and name
           dockerImageTag: ${run_number}
           inputResources:
             - name: dbp_repo
@@ -51,7 +51,7 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: dbp_group
-          targetRepository: anon-target-local
+          targetRepository: quickstart-target-local
           integrations:
             - name: myArtifactory                            # <-- replace with your artifactory integration
           inputSteps:
