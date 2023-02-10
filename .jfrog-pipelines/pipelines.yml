@@ -53,7 +53,7 @@ pipelines:
         type: DockerPush
         configuration:
           affinityGroup: dbp_group
-          targetRepository: quickstart-target-local
+          targetRepository: quickstarts-target-local
           integrations:
             - name: myArtifactory                            # <-- replace with your artifactory integration
           inputSteps:
