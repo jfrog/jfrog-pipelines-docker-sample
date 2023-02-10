@@ -12,7 +12,7 @@ resources:
     configuration:
       registry: myArtifactory                                # <-- replace with your artifactory integration
       sourceRepository: quickstart-docker-local               # <-- required if registry is Artifactory
-      imageName: chartstesting.jfrog.io/quickstart-docker-local/dbp  # < -- replace with your image path and name
+      imageName: pipelines.jfrog.io/quickstart-docker-local/dbp  # < -- replace with your image path and name
       imageTag: latest
       autoPull: true
       
