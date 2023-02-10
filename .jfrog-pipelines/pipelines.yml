@@ -72,7 +72,7 @@ pipelines:
       - name: promote_dbp_build
         type: PromoteBuild
         configuration:
-          targetRepository: quickstart-target-local
+          targetRepository: quickstarts-target-local
           integrations:
             - name: myArtifactory
           inputResources:
