@@ -48,6 +48,11 @@ pipelines:
             - name: dbp_repo
           integrations:
             - name: myArtifactory                            # <-- replace with your artifactory integration
+        execution:
+          onStart:
+              # - msg="Run description updated from step $step_id"
+              # - update_run_description "$msg"  
+              - update_run_description "DockerBuild native step performs a build to produce a Docker image"
 
       - name: docker_push
         type: DockerPush
@@ -60,6 +65,9 @@ pipelines:
             - name: docker_build
           outputResources:
             - name: dbp_image
+        execution:
+          onStart: 
+              - update_run_description "DockerPush native step pushes a Docker Image to a Docker registry"            
 
       - name: publish_dbp_build
         type: PublishBuildInfo
@@ -68,6 +76,9 @@ pipelines:
             - name: docker_push
           outputResources:
             - name: dbp_build_info
+        execution:
+          onStart: 
+              - update_run_description "PublishBuildInfo step publishes BuildInfo to Artifactory"            
 
       - name: promote_dbp_build
         type: PromoteBuild
@@ -79,3 +90,6 @@ pipelines:
             - name: dbp_build_info
           outputResources:
             - name: dbp_promoted_build_info
+        execution:
+          onStart: 
+              - update_run_description "PromoteBuild native step promotes a BuildInfo and moves/copies related artifacts"
