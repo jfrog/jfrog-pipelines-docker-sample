@@ -52,7 +52,7 @@ pipelines:
           onStart:
               # - msg="Run description updated from step $step_id"
               # - update_run_description "$msg"  
-              - update_run_description "Build and push Docker image to Artifactory.\nAdd custom text for every run"
+              - update_run_description "Add custom text for every run. Example: Build and push Docker image to Artifactory."
 
       - name: docker_push
         type: DockerPush
