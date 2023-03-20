@@ -30,6 +30,11 @@ resources:
       buildName: dbp_build
       buildNumber: 1
       
+  - name: cron_trigger
+    type: CronTrigger
+    configuration:
+      interval: '0 1 * * *'       
+      
 
 pipelines:
   - name: Docker_Quickstart
@@ -46,6 +51,7 @@ pipelines:
           dockerImageTag: ${run_number}
           inputResources:
             - name: dbp_repo
+            - name: cron_trigger
           integrations:
             - name: myArtifactory                            # <-- replace with your artifactory integration
         execution:
