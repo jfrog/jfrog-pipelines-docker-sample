@@ -33,7 +33,7 @@ resources:
   - name: cron_trigger_docker
     type: CronTrigger
     configuration:
-      interval: '0 1 * * *'       
+      interval: '0 2 * * *'       
       
 
 pipelines:
