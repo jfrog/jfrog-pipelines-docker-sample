@@ -84,7 +84,7 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: artVootla
+            - name: myArtifactory
           inputSteps:
             - name: docker_build
         execution:
@@ -93,7 +93,7 @@ pipelines:
             - echo "Hello World" > test.txt
             - cat test.txt
             # - save_artifact_info 'file' './test.txt'
-            - save_artifact_info 'buildInfo' './test.txt' --build-name bash_builds_vootla --build-number ${run_number}
+            - save_artifact_info 'buildInfo' './test.txt' --build-name bash_builds_test --build-number ${run_number}
 
       - name: promote_dbp_build
         type: PromoteBuild
