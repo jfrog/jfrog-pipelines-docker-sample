@@ -80,6 +80,21 @@ pipelines:
           outputResources:
             - name: dbp_build_info          
 
+      - name: bash_builds
+        type: Bash
+        configuration:
+          integrations:
+            - name: artVootla
+          inputSteps:
+            - name: docker_build
+        execution:
+          onExecute:
+            - touch test.txt
+            - echo "Hello World" > test.txt
+            - cat test.txt
+            # - save_artifact_info 'file' './test.txt'
+            - save_artifact_info 'buildInfo' './test.txt' --build-name bash_builds_vootla --build-number ${run_number}
+
       - name: promote_dbp_build
         type: PromoteBuild
         configuration:
