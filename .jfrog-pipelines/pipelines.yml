@@ -93,7 +93,7 @@ pipelines:
             - echo "Hello World" > test.txt
             - cat test.txt
             # - save_artifact_info 'file' './test.txt'
-            - save_artifact_info buildInfo ./test.txt -build-name "$JFROG_CLI_BUILD_NAME" -build-number $JFROG_CLI_BUILD_NUMBER
+            - save_artifact_info 'file' ./test.txt -build-name "$JFROG_CLI_BUILD_NAME" -build-number $JFROG_CLI_BUILD_NUMBER
             - save_artifact_info 'buildInfo' './test.txt' --build-name bash_builds_test --build-number ${run_number}
 
       - name: promote_dbp_build
